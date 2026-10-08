@@ -1,0 +1,45 @@
+# Publishes the site/ folder to GitHub Pages on every push to main.
+name: Deploy website
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", ".github/workflows/deploy.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check internal links
+        run: |
+          python3 - <<'PY'
+          import os, re, sys
+          os.chdir("site"); bad = []
+          for f in [x for x in os.listdir(".") if x.endswith(".html")]:
+              for u in re.findall(r'(?:href|src)="([^"#?]+)', open(f).read()):
+                  if ":" not in u and not u.startswith("/") and not os.path.exists(u):
+                      bad.append(f"{f}: {u}")
+          print("\n".join(bad) or "All internal links OK"); sys.exit(1 if bad else 0)
+          PY
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
