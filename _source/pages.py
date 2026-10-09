@@ -743,3 +743,58 @@ add("brand.html", "Brand guidelines",
   <p>All logo files are in the <code>brand/logos</code> folder of the website, in SVG (for web and print) and transparent PNG (for Office documents and social media).</p>
 </div></section>
 ''', noindex=True)
+
+
+# ======================================================================= HOLDING PAGE
+# While HOLDING is on in build.py this replaces index.html; the full homepage moves to home.html
+# and every other page is marked noindex, so the full site stays unlisted until launch.
+HOLDING_PAGE = f'''<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CDCE | Centre for Diversity, Community &amp; Enterprise</title>
+<meta name="description" content="The Centre for Diversity, Community &amp; Enterprise (CDCE) is a community interest company in the North East. Our website is coming soon.">
+<link rel="canonical" href="{DOMAIN}/">
+<meta name="theme-color" content="#14304A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CDCE">
+<meta property="og:title" content="CDCE | Centre for Diversity, Community &amp; Enterprise">
+<meta property="og:description" content="A community interest company in the North East. Our website is coming soon.">
+<meta property="og:url" content="{DOMAIN}/">
+<meta property="og:image" content="{DOMAIN}/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  body {{ background: var(--cream); min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }}
+  .hold {{ flex: 1; display: grid; place-items: center; padding: 48px var(--gutter); }}
+  .hold__inner {{ max-width: 620px; text-align: center; }}
+  .hold__logo {{ width: min(360px, 80vw); margin: 0 auto 40px; }}
+  .hold h1 {{ font-size: clamp(1.9rem, 5vw, 2.6rem); margin-bottom: .4em; }}
+  .hold .lede {{ margin: 0 auto 28px; }}
+  .hold__art {{ display: flex; justify-content: center; gap: 10px; margin: 0 auto 36px; }}
+  .hold__art svg {{ width: 40px; height: 40px; border-radius: 8px; }}
+  .hold__foot {{ font-size: .9rem; color: var(--grey); padding: 20px var(--gutter) 28px; text-align: center; }}
+</style>
+</head>
+<body>
+<main class="hold" id="main">
+  <div class="hold__inner">
+    <img class="hold__logo" src="brand/logos/cdce-logo-stacked-colour.svg" alt="CDCE – Centre for Diversity, Community &amp; Enterprise" width="451" height="228">
+    <h1>Our new website is coming soon</h1>
+    <p class="lede">CDCE is a community interest company in the North East creating space, support and opportunity for social enterprises, charities, community groups and local people.</p>
+    <div class="hold__art" aria-hidden="true">{PILLAR_ART["diversity"]}{PILLAR_ART["community"]}{PILLAR_ART["enterprise"]}</div>
+    <p>To find out more, or to register your interest, email us at</p>
+    <p><a class="btn btn--primary" href="mailto:{EMAIL}">{EMAIL}</a></p>
+  </div>
+</main>
+<footer class="hold__foot">&copy; <span data-year>2026</span> {LEGAL}</footer>
+<div class="footer-stripe"></div>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
+'''

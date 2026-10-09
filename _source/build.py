@@ -1,6 +1,10 @@
 import os, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from pages import PAGES
+from pages import PAGES, HOLDING_PAGE
+
+# Holding mode: a "coming soon" page sits at the root and the full site is unlisted.
+# Set to False at launch and rebuild.
+HOLDING = True
 from parts import DOMAIN
 
 S = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -11,10 +15,18 @@ for d in ["assets/css", "assets/js", "assets/fonts", "assets/img", "brand/logos"
     os.makedirs(os.path.join(SITE, d), exist_ok=True)
 
 for name, html in PAGES.items():
+    if HOLDING:
+        if name == "index.html":
+            name = "home.html"
+        html = html.replace('href="index.html"', 'href="home.html"')
+        if '<meta name="robots"' not in html:
+            html = html.replace('<link rel="canonical"', '<meta name="robots" content="noindex">\n<link rel="canonical"')
     if name == "404.html":  # served from any path, so resolve links from the site root
         html = html.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<base href="/">')
     open(os.path.join(SITE, name), "w").write(html)
 
+if HOLDING:
+    open(os.path.join(SITE, "index.html"), "w").write(HOLDING_PAGE)
 shutil.copy(f"{S}/build/styles.css", f"{SITE}/assets/css/styles.css")
 shutil.copy(f"{S}/build/main.js", f"{SITE}/assets/js/main.js")
 F = f"{S}/fonts"
@@ -35,7 +47,7 @@ shutil.copy(f"{R}/favicon.ico", f"{SITE}/favicon.ico")
 for f in os.listdir(f"{R}/png"):
     shutil.copy(f"{R}/png/{f}", f"{SITE}/brand/logos/{f}")
 
-urls = [p for p in PAGES if p not in ("404.html", "brand.html")]
+urls = ["index.html"] if HOLDING else [p for p in PAGES if p not in ("404.html", "brand.html")]
 open(f"{SITE}/sitemap.xml", "w").write(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{DOMAIN}/{'' if p == 'index.html' else p}</loc></url>\n" for p in urls) + "</urlset>\n")

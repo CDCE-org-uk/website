@@ -3,6 +3,12 @@
 Static website and brand kit for the **Centre for Diversity, Community & Enterprise CIC**.
 No database or CMS: plain HTML, CSS and a small script, so it can be hosted almost anywhere for free or very cheaply.
 
+## Holding page (current mode)
+
+The site is currently in **holding mode**: cdce.org.uk shows a simple "coming soon" page, the full homepage lives at `/home.html`, and every full-site page is marked `noindex` so search engines skip it. Pages are still reachable by anyone who knows the exact address, so it's a soft hide, not a password.
+
+To launch the full site, set `HOLDING = False` in `_source/build.py` and rebuild (or ask Claude to "take the site out of holding mode").
+
 ## What's here
 
 | Path | What it is |
