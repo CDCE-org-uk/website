@@ -747,20 +747,20 @@ add("brand.html", "Brand guidelines",
 
 # ======================================================================= HOLDING PAGE
 # While HOLDING is on in build.py this replaces index.html; the full homepage moves to home.html
-# and every other page is marked noindex, so the full site stays unlisted until launch.
+# and /draft/ redirects there, so the full site can be shared before launch.
 HOLDING_PAGE = f'''<!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CDCE | Centre for Diversity, Community &amp; Enterprise</title>
-<meta name="description" content="The Centre for Diversity, Community &amp; Enterprise (CDCE) is a community interest company in the North East. Our website is coming soon.">
+<meta name="description" content="The Centre for Diversity, Community &amp; Enterprise (CDCE) is a new community organisation in the North East. Our website is coming soon.">
 <link rel="canonical" href="{DOMAIN}/">
 <meta name="theme-color" content="#14304A">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CDCE">
 <meta property="og:title" content="CDCE | Centre for Diversity, Community &amp; Enterprise">
-<meta property="og:description" content="A community interest company in the North East. Our website is coming soon.">
+<meta property="og:description" content="A new community organisation in the North East. Our website is coming soon.">
 <meta property="og:url" content="{DOMAIN}/">
 <meta property="og:image" content="{DOMAIN}/assets/img/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -786,15 +786,29 @@ HOLDING_PAGE = f'''<!doctype html>
   <div class="hold__inner">
     <img class="hold__logo" src="brand/logos/cdce-logo-stacked-colour.svg" alt="CDCE – Centre for Diversity, Community &amp; Enterprise" width="451" height="228">
     <h1>Our new website is coming soon</h1>
-    <p class="lede">CDCE is a community interest company in the North East creating space, support and opportunity for social enterprises, charities, community groups and local people.</p>
+    <p class="lede">CDCE is a new not-for-profit community organisation in the North East creating space, support and opportunity for social enterprises, charities, community groups and local people.</p>
     <div class="hold__art" aria-hidden="true">{PILLAR_ART["diversity"]}{PILLAR_ART["community"]}{PILLAR_ART["enterprise"]}</div>
     <p>To find out more, or to register your interest, email us at</p>
     <p><a class="btn btn--primary" href="mailto:{EMAIL}">{EMAIL}</a></p>
   </div>
 </main>
-<footer class="hold__foot">&copy; <span data-year>2026</span> {LEGAL}</footer>
+<footer class="hold__foot">&copy; <span data-year>2026</span> Centre for Diversity, Community &amp; Enterprise</footer>
 <div class="footer-stripe"></div>
 <script src="assets/js/main.js" defer></script>
 </body>
+</html>
+'''
+
+
+DRAFT_REDIRECT = '''<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>CDCE website preview</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url=/home.html">
+<script>location.replace("/home.html");</script>
+</head>
+<body><p><a href="/home.html">Continue to the CDCE website preview</a></p></body>
 </html>
 '''

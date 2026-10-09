@@ -5,7 +5,7 @@ No database or CMS: plain HTML, CSS and a small script, so it can be hosted almo
 
 ## Holding page (current mode)
 
-The site is currently in **holding mode**: cdce.org.uk shows a simple "coming soon" page, the full homepage lives at `/home.html`, and every full-site page is marked `noindex` so search engines skip it. Pages are still reachable by anyone who knows the exact address, so it's a soft hide, not a password.
+The site is currently in **holding mode**: cdce.org.uk shows a simple "coming soon" page. The full site is shareable at **cdce.org.uk/draft**, which opens the full homepage (`/home.html`). All other pages are public as normal; only the preview homepage is kept out of search results.
 
 To launch the full site, set `HOLDING = False` in `_source/build.py` and rebuild (or ask Claude to "take the site out of holding mode").
 
