@@ -21,13 +21,11 @@ To launch the full site, set `HOLDING = False` in `_source/build.py` and rebuild
 | `_source/` | The scripts that generated the site (only needed if Claude makes further changes). |
 
 ### Pages
-Home, Coworking Thursdays, About us, Contact, Privacy notice, Accessibility statement, a 404 page, and the brand guidelines page. The site was simplified in November 2026 around the first offer, Coworking Thursdays; more pages (programmes, news, policies) can come back later.
+Home, Coworking Thursdays, Services, About us, Contact, Privacy notice, Accessibility statement, a 404 page, and the brand guidelines page. The site was simplified in November 2026 around the first offer, Coworking Thursdays; more pages (programmes, news, policies) can come back later.
 
-## Before you publish
+## Placeholders
 
-Placeholders are highlighted **yellow with a dashed underline** and written in square brackets. In the HTML they look like `<mark class="ph">[...]</mark>`. Only one remains:
-
-- `[Divercity Hub street address and postcode]` on the Coworking Thursdays and Contact pages (set `VENUE_ADDRESS` in `_source/parts.py`).
+Placeholders are highlighted **yellow with a dashed underline** and written in square brackets (`<mark class="ph">[...]</mark>`). None remain at the moment. The venue address is set by `VENUE_ADDRESS` in `_source/parts.py`.
 
 ## Booking link
 

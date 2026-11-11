@@ -12,18 +12,18 @@ WHO_CHIPS = "<li>Startups</li><li>Community projects</li><li>Social enterprises<
 
 # ======================================================================= HOME
 add("index.html", "Home",
-    "CDCE is a not-for-profit community organisation in Newcastle. Join us for free coworking every Thursday, 10am to 4pm, at Divercity Hub.",
+    "CDCE is a not-for-profit community organisation in Newcastle. Join us for free coworking every Thursday, 10am to 4pm, at DiverCity Hub.",
     f'''
 <section class="hero"><div class="wrap">
   <div>
     <p class="eyebrow">Not-for-profit community organisation · Newcastle</p>
     <h1>Free space to work on <em>the things that make a difference</em></h1>
-    <p class="lede">The Centre for Diversity, Community &amp; Enterprise (CDCE) supports startups, community projects and social enterprises. We're starting with <strong>Coworking Thursdays</strong>: free hot desking every Thursday, 10am to 4pm, at Divercity Hub in Newcastle.</p>
+    <p class="lede">The Centre for Diversity, Community &amp; Enterprise (CDCE) supports startups, community projects and social enterprises. Join us for <strong>Coworking Thursdays</strong>: free hot desking every Thursday, 10am to 4pm, at DiverCity Hub in Newcastle.</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="{BOOKING_URL}">Book a free desk</a>
       <a class="btn btn--ghost" href="coworking.html">How it works</a>
     </div>
-    <p class="hero__note"><span>First session: <strong>{FIRST_SESSION}</strong>. Places are limited to {CAPACITY} each week.</span></p>
+    <p class="hero__note"><span>First session: <strong>{FIRST_SESSION}</strong>. Drop in, or book ahead to make sure of one of {CAPACITY} desks.</span></p>
   </div>
   <div class="hero__art">{HERO_ART}</div>
 </div></section>
@@ -35,9 +35,9 @@ add("index.html", "Home",
   </div>
   <div class="grid grid--4">
     <div class="card card--shadow">{icon("clock")}<h3>When</h3><p class="mb-0">Every Thursday, 10am to 4pm. Come for an hour or stay all day.</p></div>
-    <div class="card card--shadow">{icon("pin", "berry")}<h3>Where</h3><p class="mb-0">Divercity Hub, Newcastle.</p></div>
+    <div class="card card--shadow">{icon("pin", "berry")}<h3>Where</h3><p class="mb-0">DiverCity Hub, {VENUE_ADDRESS}</p></div>
     <div class="card card--shadow">{icon("pound", "amber")}<h3>Cost</h3><p class="mb-0">Free. No membership, no catch.</p></div>
-    <div class="card card--shadow">{icon("users", "ink")}<h3>Places</h3><p class="mb-0">{CAPACITY} desks a week, so please book ahead.</p></div>
+    <div class="card card--shadow">{icon("users", "ink")}<h3>Places</h3><p class="mb-0">{CAPACITY} desks. Drop-ins are welcome, but book ahead so you don't miss out.</p></div>
   </div>
   <p style="margin-top:28px;text-align:center"><a class="link-arrow" href="coworking.html">More about Coworking Thursdays</a></p>
 </div></section>
@@ -50,9 +50,9 @@ add("index.html", "Home",
     <ul class="chips">{WHO_CHIPS}</ul>
   </div>
   <div class="card bg-teal-wash" style="border:0">
-    <h3>What's coming next</h3>
-    <p>Coworking Thursdays is our first step. Next, we're planning training, events and practical support, and a dedicated CDCE building in 2027.</p>
-    <a class="link-arrow" href="about.html">About CDCE</a>
+    <h3>More from CDCE</h3>
+    <p>Alongside coworking, we offer advice and guidance, training and events for small businesses, startups and community enterprises. We're also developing a dedicated CDCE building in Newcastle.</p>
+    <a class="link-arrow" href="services.html">Our services</a>
   </div>
 </div></section>
 
@@ -62,29 +62,29 @@ add("index.html", "Home",
 
 # ======================================================================= COWORKING THURSDAYS
 add("coworking.html", "Coworking Thursdays",
-    "Free hot desking for startups, community projects and social enterprises every Thursday, 10am to 4pm, at Divercity Hub in Newcastle.",
+    "Free hot desking for startups, community projects and social enterprises every Thursday, 10am to 4pm, at DiverCity Hub in Newcastle.",
     f'''
-{page_head("Coworking Thursdays", "Free hot desking for startups, community projects and social enterprises, every Thursday from 10am to 4pm at Divercity Hub in Newcastle.", "hub", "Coworking Thursdays")}
+{page_head("Coworking Thursdays", "Free hot desking for startups, community projects and social enterprises, every Thursday from 10am to 4pm at DiverCity Hub in Newcastle.", "hub", "Coworking Thursdays")}
 
 <section class="section"><div class="wrap split split--top">
   <div>
     <h2>The details</h2>
     <ul class="contact-list">
       <li>{icon("calendar")}<div><strong>When</strong>Every Thursday, 10am to 4pm. First session {FIRST_SESSION}.</div></li>
-      <li>{icon("pin", "berry")}<div><strong>Where</strong>Divercity Hub, {VENUE_ADDRESS}</div></li>
+      <li>{icon("pin", "berry")}<div><strong>Where</strong>DiverCity Hub, {VENUE_ADDRESS}</div></li>
       <li>{icon("pound", "amber")}<div><strong>Cost</strong>Free</div></li>
       <li>{icon("users", "ink")}<div><strong>Places</strong>{CAPACITY} desks each week</div></li>
     </ul>
-    <p>The space is provided free of charge by our partner, Divercity Hub, until CDCE opens its own building.</p>
+    <p>The space is provided free of charge by our partner, DiverCity Hub, until CDCE opens its own building.</p>
   </div>
   <div class="card bg-cream" style="border:0" id="book">
     <h2 style="font-size:1.5rem">How to book</h2>
     <ol>
-      <li>Book your free place for the Thursday you want to come.</li>
+      <li>Book your free place for the Thursday you want to come. Drop-ins are welcome too, if there's space.</li>
       <li>Arrive any time between 10am and 4pm.</li>
       <li>Sign in when you arrive and find a desk.</li>
     </ol>
-    <p>If a week is full, we'll add you to the waiting list and let you know if a place comes up.</p>
+    <p>There are {CAPACITY} desks, so booking ahead is the best way to make sure you get one. If a week is full, we'll add you to the waiting list.</p>
     <a class="btn btn--primary" href="{BOOKING_URL}">Book a free desk</a>
   </div>
 </div></section>
@@ -112,14 +112,33 @@ add("coworking.html", "Coworking Thursdays",
 <section class="section"><div class="wrap narrow">
   <h2>Questions</h2>
   <div class="faq">
-    <details><summary>Is it really free?</summary><div><p>Yes. Divercity Hub provides the space at no cost, so we can offer it free to you.</p></div></details>
-    <details><summary>Do I need to book?</summary><div><p>Yes, please. There are {CAPACITY} places each week, and booking means we can keep a desk for you.</p></div></details>
-    <details><summary>Can I come every week?</summary><div><p>Of course. Just book each week you plan to come.</p></div></details>
+    <details><summary>Is it really free?</summary><div><p>Yes. DiverCity Hub provides the space at no cost, so we can offer it free to you.</p></div></details>
+    <details><summary>Do I need to book?</summary><div><p>You can drop in, but there are only {CAPACITY} desks, so we recommend booking ahead to make sure you get one.</p></div></details>
+    <details><summary>Can I come every week?</summary><div><p>Of course. Just book for each week you plan to come.</p></div></details>
     <details><summary>I have access needs. Can you help?</summary><div><p>Please email <a href="mailto:{EMAIL}">{EMAIL}</a> before you visit and we'll do our best to make sure the space works for you.</p></div></details>
   </div>
 </div></section>
 
 {cta("Ready to join us?", "Book your free desk for a Thursday that suits you.", [("Book a free desk", BOOKING_URL, "btn--amber"), ("Contact us", "contact.html", "btn--ghost")])}
+''')
+
+
+# ======================================================================= SERVICES
+add("services.html", "Services",
+    "CDCE offers advice and guidance, training, events and free coworking for small businesses, startups, community projects and social enterprises in Newcastle.",
+    f'''
+{page_head("Our services", "Practical help for small businesses, startups, community projects and social enterprises in Newcastle and the North East.", "programmes", "Services")}
+
+<section class="section"><div class="wrap">
+  <div class="grid grid--2">
+    <div class="card">{icon("bulb", "amber")}<h3>Advice and guidance</h3><p class="mb-0">Friendly, practical advice for small businesses and community enterprises, from shaping an idea and choosing a legal structure to planning, finance basics and finding funding.</p></div>
+    <div class="card">{icon("book")}<h3>Training and workshops</h3><p class="mb-0">Sessions that build the skills you need to start, run and grow an organisation with a social purpose.</p></div>
+    <div class="card">{icon("calendar", "berry")}<h3>Events and networking</h3><p class="mb-0">Opportunities to meet other founders, community organisers, partners and funders, share ideas and work together.</p></div>
+    <div class="card">{icon("desk", "ink")}<h3>Coworking Thursdays</h3><p>Free hot desking every Thursday, 10am to 4pm, at DiverCity Hub in Newcastle.</p><a class="link-arrow" href="coworking.html">Find out more</a></div>
+  </div>
+</div></section>
+
+{cta("Not sure where to start?", "Tell us what you're working on and we'll point you in the right direction.", [("Contact us", "contact.html", "btn--amber"), ("Book a free desk", BOOKING_URL, "btn--ghost")])}
 ''')
 
 
@@ -134,7 +153,7 @@ add("about.html", "About us",
     <p class="eyebrow">Why we exist</p>
     <h2>Good ideas need a place to grow</h2>
     <p>Across the North East, people are starting businesses, running community projects and building social enterprises, often from kitchen tables and borrowed rooms. Finding space, support and the right people can be hard.</p>
-    <p>CDCE was set up to change that. We're starting with free coworking every Thursday, and building towards training, events and a dedicated building in 2027.</p>
+    <p>CDCE was set up to change that. We run free coworking every Thursday, offer advice, guidance, training and events, and are developing a dedicated CDCE building in Newcastle.</p>
   </div>
   <div class="card card--teal"><p class="eyebrow">Our mission</p><p class="lede mb-0">To provide space, support and opportunity that help community organisations and enterprises thrive, and open up opportunity for local people.</p></div>
 </div></section>
@@ -181,13 +200,13 @@ add("contact.html", "Contact us",
     <h2>Get in touch</h2>
     <ul class="contact-list">
       <li>{icon("mail")}<div><strong>Email</strong><a href="mailto:{EMAIL}">{EMAIL}</a></div></li>
-      <li>{icon("pin", "berry")}<div><strong>Find us on Thursdays</strong>Divercity Hub, {VENUE_ADDRESS}<br>10am to 4pm</div></li>
+      <li>{icon("pin", "berry")}<div><strong>Find us on Thursdays</strong>DiverCity Hub, {VENUE_ADDRESS}<br>10am to 4pm</div></li>
     </ul>
     <p class="muted">If you need information in another format or language, or support to get in touch, please tell us and we'll do our best to help.</p>
   </div>
   <div class="card bg-cream" style="border:0">
     <h2 style="font-size:1.5rem">Want a desk on Thursday?</h2>
-    <p>Coworking Thursdays is free, but places are limited to {CAPACITY} a week.</p>
+    <p>Coworking Thursdays is free. Drop-ins are welcome, but there are {CAPACITY} desks, so it's best to book ahead.</p>
     <a class="btn btn--primary" href="{BOOKING_URL}">Book a free desk</a>
   </div>
 </div></section>
@@ -405,7 +424,7 @@ HOLDING_PAGE = f'''<!doctype html>
     <h1>Our new website is coming soon</h1>
     <p class="lede">CDCE is a new not-for-profit community organisation in Newcastle supporting startups, community projects and social enterprises.</p>
     <div class="hold__art" aria-hidden="true">{PILLAR_ART["diversity"]}{PILLAR_ART["community"]}{PILLAR_ART["enterprise"]}</div>
-    <p><strong>Free coworking every Thursday, 10am to 4pm, at Divercity Hub, Newcastle.</strong> First session {FIRST_SESSION}. To book a desk or find out more, email us at</p>
+    <p><strong>Free coworking every Thursday, 10am to 4pm, at DiverCity Hub, Newcastle.</strong> First session {FIRST_SESSION}. To book a desk or find out more, email us at</p>
     <p><a class="btn btn--primary" href="mailto:{EMAIL}">{EMAIL}</a></p>
   </div>
 </main>

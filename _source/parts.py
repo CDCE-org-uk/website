@@ -26,8 +26,7 @@ def ph(text):
     return f'<mark class="ph">[{text}]</mark>'
 
 
-# The one fact still to fill in before launch.
-VENUE_ADDRESS = ph("Divercity Hub street address and postcode") + ", Newcastle upon Tyne"
+VENUE_ADDRESS = "120 Buckingham St, Newcastle upon Tyne NE4 5QU"
 
 
 # ---------------------------------------------------------------- Icons
@@ -143,6 +142,7 @@ def banner(kinds, bgs, fgs):
 NAV = [
     ("index.html", "Home"),
     ("coworking.html", "Coworking Thursdays"),
+    ("services.html", "Services"),
     ("about.html", "About us"),
 ]
 
@@ -159,7 +159,7 @@ def header(active):
         f'<li><a href="{h}"{" aria-current=\"page\"" if h == active else ""}>{t}</a></li>' for h, t in NAV)
     return f'''<a class="skip" href="#main">Skip to main content</a>
 <div class="topbar"><div class="wrap">
-  <p class="topbar__msg mb-0">Free coworking every Thursday, 10am to 4pm, at Divercity Hub, Newcastle</p>
+  <p class="topbar__msg mb-0">Free coworking every Thursday, 10am to 4pm, at DiverCity Hub, Newcastle</p>
   <div class="topbar__links"><a href="mailto:{EMAIL}">{EMAIL}</a><a href="accessibility.html">Accessibility</a></div>
 </div></div>
 <header class="site-header"><div class="wrap" style="position:relative">
@@ -184,6 +184,7 @@ def footer():
     <h2>Explore</h2>
     <ul>
       <li><a href="coworking.html">Coworking Thursdays</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About us</a></li>
       <li><a href="contact.html">Contact us</a></li>
     </ul>
@@ -199,7 +200,7 @@ def footer():
     <h2>Contact</h2>
     <ul>
       <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
-      <li>Thursdays at Divercity Hub, Newcastle</li>
+      <li>Thursdays at DiverCity Hub, Newcastle</li>
     </ul>
   </div>
 </div>
