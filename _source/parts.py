@@ -146,6 +146,7 @@ NAV = [
     ("coworking.html", "Coworking Thursdays"),
     ("services.html", "Services"),
     ("about.html", "About us"),
+    ("volunteer.html", "Volunteer"),
 ]
 
 
@@ -188,6 +189,7 @@ def footer():
       <li><a href="coworking.html">Coworking Thursdays</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About us</a></li>
+      <li><a href="volunteer.html">Volunteer with us</a></li>
       <li><a href="contact.html">Contact us</a></li>
     </ul>
   </div>
