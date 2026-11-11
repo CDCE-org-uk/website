@@ -114,6 +114,7 @@ add("coworking.html", "Coworking Thursdays",
     <details><summary>Is it really free?</summary><div><p>Yes. We run Coworking Thursdays in partnership with DiverCity Hub, so we can offer it free to you.</p></div></details>
     <details><summary>Do I need to book?</summary><div><p>You can drop in, but there are only {CAPACITY} desks, so we recommend booking ahead to make sure you get one.</p></div></details>
     <details><summary>Can I come every week?</summary><div><p>Of course. Just book for each week you plan to come.</p></div></details>
+    <details><summary>Can I volunteer?</summary><div><p>Yes, we'd love your help. Volunteers welcome people on Thursdays, help look after the space and support our events. <a href="volunteer.html">Find out about volunteering</a>.</p></div></details>
     <details><summary>I have access needs. Can you help?</summary><div><p>Please email <a href="mailto:{EMAIL}">{EMAIL}</a> before you visit and we'll do our best to make sure the space works for you.</p></div></details>
   </div>
 </div></section>
@@ -138,6 +139,49 @@ add("services.html", "Services",
 </div></section>
 
 {cta("Not sure where to start?", "Tell us what you're working on and we'll point you in the right direction.", [("Contact us", "contact.html", "btn--amber"), ("Book a free desk", BOOKING_URL, "btn--ghost")])}
+''')
+
+
+# ======================================================================= VOLUNTEER
+VOLUNTEER_MAIL = "mailto:hello@cdce.org.uk?subject=Volunteering%20with%20CDCE"
+add("volunteer.html", "Volunteer with us",
+    "Volunteer with CDCE in Newcastle: help run Coworking Thursdays at DiverCity Hub, support our events, or take on a lead volunteer role.",
+    f'''
+{page_head("Volunteer with us", "Give a few hours, meet great people and help startups, community projects and social enterprises in Newcastle thrive.", "involved", "Volunteer")}
+
+<section class="section"><div class="wrap">
+  <div class="section-head">
+    <h2>Ways to help</h2>
+    <p>No special experience needed. Just a friendly attitude and a few hours to spare.</p>
+  </div>
+  <div class="grid grid--3">
+    <div class="card">{icon("desk")}<h3>Coworking Thursdays</h3><p class="mb-0">Welcome people, help with sign-in, set up and tidy the space, and make sure everyone feels at home. Come for a morning, an afternoon or the whole day.</p></div>
+    <div class="card">{icon("calendar", "berry")}<h3>Events</h3><p class="mb-0">Help plan and run workshops, networking sessions and community events, from setting up the room to greeting guests.</p></div>
+    <div class="card">{icon("star", "amber")}<h3>Lead volunteer roles</h3><p class="mb-0">Have experience in marketing, events, running a space, or finance and admin? Take a lead role, shape how CDCE grows and lead a small team of volunteers.</p></div>
+  </div>
+</div></section>
+
+<section class="section bg-cream"><div class="wrap split split--top">
+  <div>
+    <p class="eyebrow">Why volunteer</p>
+    <h2>What you get</h2>
+    <ul class="ticks">
+      <li>Experience you can put on your CV</li>
+      <li>Connections with founders, community organisers and local organisations</li>
+      <li>Flexible hours that fit around your life</li>
+      <li>The chance to make a real difference in Newcastle</li>
+    </ul>
+  </div>
+  <div class="card" style="border:0">
+    <h2 style="font-size:1.5rem">How to get involved</h2>
+    <ol>
+      <li>Email us and tell us a little about yourself and how you'd like to help.</li>
+      <li>We'll invite you for an informal chat, usually on a Thursday at DiverCity Hub.</li>
+      <li>Agree when you'd like to help, and we'll show you the ropes.</li>
+    </ol>
+    <a class="btn btn--primary" href="{VOLUNTEER_MAIL}">Email us about volunteering</a>
+  </div>
+</div></section>
 ''')
 
 
