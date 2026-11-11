@@ -448,3 +448,7 @@ DRAFT_REDIRECT = '''<!doctype html>
 <body><p><a href="/home.html">Continue to the CDCE website preview</a></p></body>
 </html>
 '''
+
+
+# After launch, old preview links (/draft and /home.html) send people to the homepage.
+LAUNCH_REDIRECT = DRAFT_REDIRECT.replace("CDCE website preview", "CDCE").replace("/home.html", "/")
