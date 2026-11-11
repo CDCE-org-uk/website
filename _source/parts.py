@@ -14,6 +14,8 @@ EMAIL = "hello@cdce.org.uk"
 # until then "Book a free desk" opens an email to hello@ with the subject filled in.
 BOOKING_URL = "mailto:hello@cdce.org.uk?subject=Book%20a%20desk%20at%20Coworking%20Thursdays"
 FIRST_SESSION = "Thursday 19 November 2026"
+# Shows the upcoming Thursday. main.js keeps it current; the text is the fallback without JavaScript.
+NEXT_SESSION = f'<span data-next-session="2026-11-19">{FIRST_SESSION}</span>'
 CAPACITY = 20
 
 INK, TEAL, BERRY, AMBER = "#14304A", "#0E6E6B", "#B23A5F", "#F2A33A"

@@ -24,6 +24,22 @@
   var y = document.querySelectorAll("[data-year]");
   for (var i = 0; i < y.length; i++) y[i].textContent = new Date().getFullYear();
 
+  // Next Coworking Thursday: the coming Thursday (today until 4pm), never before the first session.
+  var ns = document.querySelectorAll("[data-next-session]");
+  if (ns.length) {
+    var now = new Date();
+    var d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var add = (4 - d.getDay() + 7) % 7;
+    if (add === 0 && now.getHours() >= 16) add = 7;
+    d.setDate(d.getDate() + add);
+    Array.prototype.forEach.call(ns, function (el) {
+      var p = el.getAttribute("data-next-session").split("-");
+      var first = new Date(+p[0], +p[1] - 1, +p[2]);
+      var next = d < first ? first : d;
+      el.textContent = next.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).replace(",", "");
+    });
+  }
+
   // Forms: posts to the form service set in the form's action attribute (e.g. Formspree).
   // Until a real endpoint is configured, explain that and point people to email instead.
   var forms = document.querySelectorAll("form[data-cdce-form]");
