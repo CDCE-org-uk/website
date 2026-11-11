@@ -22,7 +22,7 @@ add("index.html", "Home",
       <a class="btn btn--primary" href="{BOOKING_URL}">Book a free desk</a>
       <a class="btn btn--ghost" href="coworking.html">How it works</a>
     </div>
-    <p class="hero__note"><span>First session: <strong>{FIRST_SESSION}</strong>. Drop in, or book ahead to make sure of one of {CAPACITY} desks.</span></p>
+    <p class="hero__note"><span>Next session: <strong>{NEXT_SESSION}</strong>. Drop in, or book ahead to make sure of one of {CAPACITY} desks.</span></p>
   </div>
   <div class="hero__art">{HERO_ART}</div>
 </div></section>
@@ -69,12 +69,12 @@ add("coworking.html", "Coworking Thursdays",
   <div>
     <h2>The details</h2>
     <ul class="contact-list">
-      <li>{icon("calendar")}<div><strong>When</strong>Every Thursday, 10am to 4pm. First session {FIRST_SESSION}.</div></li>
+      <li>{icon("calendar")}<div><strong>When</strong>Every Thursday, 10am to 4pm. Next session {NEXT_SESSION}.</div></li>
       <li>{icon("pin", "berry")}<div><strong>Where</strong>DiverCity Hub, {VENUE_ADDRESS}</div></li>
       <li>{icon("pound", "amber")}<div><strong>Cost</strong>Free</div></li>
       <li>{icon("users", "ink")}<div><strong>Places</strong>{CAPACITY} desks each week</div></li>
     </ul>
-    <p>The space is provided free of charge by our partner, DiverCity Hub, until CDCE opens its own building.</p>
+    <p>We run Coworking Thursdays in partnership with DiverCity Hub.</p>
   </div>
   <div class="card bg-cream" style="border:0" id="book">
     <h2 style="font-size:1.5rem">How to book</h2>
@@ -111,7 +111,7 @@ add("coworking.html", "Coworking Thursdays",
 <section class="section"><div class="wrap narrow">
   <h2>Questions</h2>
   <div class="faq">
-    <details><summary>Is it really free?</summary><div><p>Yes. DiverCity Hub provides the space at no cost, so we can offer it free to you.</p></div></details>
+    <details><summary>Is it really free?</summary><div><p>Yes. We run Coworking Thursdays in partnership with DiverCity Hub, so we can offer it free to you.</p></div></details>
     <details><summary>Do I need to book?</summary><div><p>You can drop in, but there are only {CAPACITY} desks, so we recommend booking ahead to make sure you get one.</p></div></details>
     <details><summary>Can I come every week?</summary><div><p>Of course. Just book for each week you plan to come.</p></div></details>
     <details><summary>I have access needs. Can you help?</summary><div><p>Please email <a href="mailto:{EMAIL}">{EMAIL}</a> before you visit and we'll do our best to make sure the space works for you.</p></div></details>
