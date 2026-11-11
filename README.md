@@ -3,11 +3,9 @@
 Static website and brand kit for the **Centre for Diversity, Community & Enterprise**.
 No database or CMS: plain HTML, CSS and a small script, so it can be hosted almost anywhere for free or very cheaply.
 
-## Holding page (current mode)
+## Holding mode
 
-The site is currently in **holding mode**: cdce.org.uk shows a simple "coming soon" page. The full site is shareable at **cdce.org.uk/draft**, which opens the full homepage (`/home.html`). All other pages are public as normal; only the preview homepage is kept out of search results.
-
-To launch the full site, set `HOLDING = False` in `_source/build.py` and rebuild (or ask Claude to "take the site out of holding mode").
+The site launched on 11 November 2026, so holding mode is off. Old preview links (`/draft` and `/home.html`) redirect to the homepage. To show a "coming soon" page again, set `HOLDING = True` in `_source/build.py` and rebuild.
 
 ## What's here
 
