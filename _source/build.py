@@ -1,10 +1,10 @@
 import os, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from pages import PAGES, HOLDING_PAGE, DRAFT_REDIRECT
+from pages import PAGES, HOLDING_PAGE, DRAFT_REDIRECT, LAUNCH_REDIRECT
 
 # Holding mode: a "coming soon" page sits at the root and the full site is unlisted.
 # Set to False at launch and rebuild.
-HOLDING = True
+HOLDING = False
 from parts import DOMAIN
 
 S = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -29,6 +29,10 @@ if HOLDING:
     open(os.path.join(SITE, "index.html"), "w").write(HOLDING_PAGE)
     os.makedirs(os.path.join(SITE, "draft"), exist_ok=True)
     open(os.path.join(SITE, "draft", "index.html"), "w").write(DRAFT_REDIRECT)
+else:
+    os.makedirs(os.path.join(SITE, "draft"), exist_ok=True)
+    open(os.path.join(SITE, "draft", "index.html"), "w").write(LAUNCH_REDIRECT)
+    open(os.path.join(SITE, "home.html"), "w").write(LAUNCH_REDIRECT)
 shutil.copy(f"{S}/build/styles.css", f"{SITE}/assets/css/styles.css")
 shutil.copy(f"{S}/build/main.js", f"{SITE}/assets/js/main.js")
 F = f"{S}/fonts"

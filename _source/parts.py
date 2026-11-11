@@ -7,8 +7,14 @@ MARK = open(os.path.join(LOGOS, "_mark_inline.txt")).read()
 MARK_REV = open(os.path.join(LOGOS, "_mark_inline_rev.txt")).read()
 
 DOMAIN = "https://cdce.org.uk"
-LEGAL = "Centre for Diversity, Community &amp; Enterprise CIC"
+LEGAL = "Centre for Diversity, Community &amp; Enterprise"
 EMAIL = "hello@cdce.org.uk"
+
+# Coworking Thursdays. Swap BOOKING_URL for the Google Form link once it exists;
+# until then "Book a free desk" opens an email to hello@ with the subject filled in.
+BOOKING_URL = "mailto:hello@cdce.org.uk?subject=Book%20a%20desk%20at%20Coworking%20Thursdays"
+FIRST_SESSION = "Thursday 19 November 2026"
+CAPACITY = 20
 
 INK, TEAL, BERRY, AMBER = "#14304A", "#0E6E6B", "#B23A5F", "#F2A33A"
 CREAM, SAND, TEAL_W, BERRY_W, AMBER_W = "#FBF7F0", "#F3EBDD", "#E3F1EF", "#F8E6EC", "#FDF0DC"
@@ -18,6 +24,9 @@ L_TEAL, L_BERRY = "#4FC1B8", "#EE7A9C"
 def ph(text):
     """Visible placeholder the CDCE team must replace or confirm."""
     return f'<mark class="ph">[{text}]</mark>'
+
+
+VENUE_ADDRESS = "120 Buckingham St, Newcastle upon Tyne NE4 5QU"
 
 
 # ---------------------------------------------------------------- Icons
@@ -132,11 +141,9 @@ def banner(kinds, bgs, fgs):
 # ---------------------------------------------------------------- Layout
 NAV = [
     ("index.html", "Home"),
+    ("coworking.html", "Coworking Thursdays"),
+    ("services.html", "Services"),
     ("about.html", "About us"),
-    ("hub.html", "The Hub"),
-    ("programmes.html", "Programmes"),
-    ("get-involved.html", "Get involved"),
-    ("news.html", "News"),
 ]
 
 
@@ -152,7 +159,7 @@ def header(active):
         f'<li><a href="{h}"{" aria-current=\"page\"" if h == active else ""}>{t}</a></li>' for h, t in NAV)
     return f'''<a class="skip" href="#main">Skip to main content</a>
 <div class="topbar"><div class="wrap">
-  <p class="topbar__msg mb-0">A community interest company for {ph("Town or city")} and the North East</p>
+  <p class="topbar__msg mb-0">Free coworking every Thursday, 10am to 4pm, at DiverCity Hub, Newcastle</p>
   <div class="topbar__links"><a href="mailto:{EMAIL}">{EMAIL}</a><a href="accessibility.html">Accessibility</a></div>
 </div></div>
 <header class="site-header"><div class="wrap" style="position:relative">
@@ -176,19 +183,15 @@ def footer():
   <div>
     <h2>Explore</h2>
     <ul>
+      <li><a href="coworking.html">Coworking Thursdays</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About us</a></li>
-      <li><a href="hub.html">The Hub</a></li>
-      <li><a href="programmes.html">Programmes</a></li>
-      <li><a href="get-involved.html">Get involved</a></li>
-      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Contact us</a></li>
     </ul>
   </div>
   <div>
-    <h2>Governance</h2>
+    <h2>Information</h2>
     <ul>
-      <li><a href="about.html#governance">How we're run</a></li>
-      <li><a href="policies.html">Policies</a></li>
-      <li><a href="policies.html#reports">Community interest reports</a></li>
       <li><a href="privacy.html">Privacy notice</a></li>
       <li><a href="accessibility.html">Accessibility</a></li>
     </ul>
@@ -197,28 +200,20 @@ def footer():
     <h2>Contact</h2>
     <ul>
       <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
-      <li>{ph("Phone number")}</li>
-      <li>{ph("Hub address, North East")}</li>
-      <li><a href="{ph_href("LinkedIn URL")}">LinkedIn</a> · <a href="{ph_href("Facebook URL")}">Facebook</a> · <a href="{ph_href("Instagram URL")}">Instagram</a></li>
+      <li>Thursdays at DiverCity Hub, Newcastle</li>
     </ul>
   </div>
 </div>
 <div class="wrap footer-bottom">
-  <p>{LEGAL} is a community interest company limited by guarantee, registered in England and Wales. Company number {ph("company number")}. Registered office: {ph("registered office address")}.</p>
+  <p>{LEGAL} (CDCE) is a not-for-profit community organisation based in Newcastle upon Tyne.</p>
   <nav aria-label="Legal"><ul>
     <li>&copy; <span data-year>2026</span> CDCE</li>
     <li><a href="privacy.html">Privacy</a></li>
     <li><a href="accessibility.html">Accessibility</a></li>
-    <li><a href="policies.html">Policies</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul></nav>
 </div>
 </footer>'''
-
-
-def ph_href(_label):
-    # Social links: replace '#' with the real profile URLs (listed in README).
-    return "#"
 
 
 def page(path, title, desc, body, active=None, noindex=False):
@@ -228,7 +223,7 @@ def page(path, title, desc, body, active=None, noindex=False):
     ld = ""
     if path == "index.html":
         ld = f'''
-<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Centre for Diversity, Community & Enterprise CIC","alternateName":"CDCE","url":"{DOMAIN}/","logo":"{DOMAIN}/brand/logos/cdce-logo-stacked-colour.svg","email":"{EMAIL}","areaServed":"North East England"}}</script>'''
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"Centre for Diversity, Community & Enterprise","alternateName":"CDCE","url":"{DOMAIN}/","logo":"{DOMAIN}/brand/logos/cdce-logo-stacked-colour.svg","email":"{EMAIL}","areaServed":"Newcastle upon Tyne and North East England"}}</script>'''
     return f'''<!doctype html>
 <html lang="en-GB">
 <head>
