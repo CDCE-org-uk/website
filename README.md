@@ -1,6 +1,6 @@
 # CDCE website (cdce.org.uk)
 
-Static website and brand kit for the **Centre for Diversity, Community & Enterprise CIC**.
+Static website and brand kit for the **Centre for Diversity, Community & Enterprise**.
 No database or CMS: plain HTML, CSS and a small script, so it can be hosted almost anywhere for free or very cheaply.
 
 ## Holding page (current mode)
@@ -21,55 +21,17 @@ To launch the full site, set `HOLDING = False` in `_source/build.py` and rebuild
 | `_source/` | The scripts that generated the site (only needed if Claude makes further changes). |
 
 ### Pages
-Home, About us, The Hub, Programmes, Get involved, News, Contact, Policies, Privacy notice, Accessibility statement, a 404 page, and the brand guidelines page.
+Home, Coworking Thursdays, About us, Contact, Privacy notice, Accessibility statement, a 404 page, and the brand guidelines page. The site was simplified in November 2026 around the first offer, Coworking Thursdays; more pages (programmes, news, policies) can come back later.
 
-## Before you publish: fill in the placeholders
+## Before you publish
 
-Everything you need to fill in or confirm is highlighted **yellow with a dashed underline** on the pages and written in square brackets, e.g. `[company number]`. In the HTML they look like `<mark class="ph">[company number]</mark>`. Replace the whole `<mark ...>...</mark>` tag with your text. Searching all files for `class="ph"` finds every one (VS Code: *Edit → Replace in Files*).
+Placeholders are highlighted **yellow with a dashed underline** and written in square brackets. In the HTML they look like `<mark class="ph">[...]</mark>`. Only one remains:
 
-**On every page (header/footer), replace these across all files at once:**
-- `[Town or city]`: where the Hub will be
-- `[Phone number]`
-- `[Hub address, North East]`
-- `[company number]`: from Companies House
-- `[registered office address]`
-- Social media links: the footer's LinkedIn / Facebook / Instagram links currently point to `#`. Replace with your profile URLs, or delete any you don't use.
+- `[Divercity Hub street address and postcode]` on the Coworking Thursdays and Contact pages (set `VENUE_ADDRESS` in `_source/parts.py`).
 
-**Home (`index.html`)**: opening date/status line; office size (`[2 to 8]`), meeting room (`[12]`) and hall (`[60]`) capacities; three-year targets (`[25]`, `[300]`, `[40]`, `[100]`%), which are suggestions for the board to confirm; funder/partner logos; news dates and links.
+## Booking link
 
-**About (`about.html`)**: founding year and story; board and management names, roles and bios (please get each person's OK before publishing); a photo.
-
-**The Hub (`hub.html`)**: status banner; capacities; facilities and travel links; all prices (social and standard rates) and VAT; minimum licence term; accessibility details.
-
-**Programmes**: the "programme development" note (update with launch dates or remove).
-
-**Get involved**: a partner or funder quote and photo.
-
-**News**: dates and full articles for the three suggested posts, or remove them; social links.
-
-**Contact**: address, postcode, opening hours, response time, map.
-
-**Policies**: links to each approved policy (PDF), financial year end, safeguarding contact email.
-
-**Privacy notice**: ICO registration number, form provider, retention periods, date. Have the board review it before going live.
-
-**Accessibility statement**: building accessibility details and date.
-
-### Assumptions to check
-- **Email**: the site uses `hello@cdce.org.uk` throughout. If you choose a different address, search and replace it in all `.html` files and in `assets/js/main.js`.
-- **Legal name**: the footer and privacy notice say "Centre for Diversity, Community & Enterprise CIC". Check this matches Companies House exactly.
-- **Hub status**: the copy is written for a hub that is still being developed (register interest, opening soon). Update it once the building is secured.
-- **No real photos yet**: dashed boxes mark where photos should go. Real photos of people and the building will make the biggest difference to how professional the site feels.
-
-## Contact form setup
-
-The contact form needs a form service to deliver messages by email (static sites can't send email themselves). Until it's set up, pressing *Send* shows a message asking people to email `hello@cdce.org.uk` instead.
-
-1. Create a free account at **formspree.io** using a CDCE email address (not a personal one).
-2. Create a form and copy its ID (looks like `xyzabcde`).
-3. In `site/contact.html`, replace `YOUR_FORM_ID` in `action="https://formspree.io/f/YOUR_FORM_ID"` with your ID.
-
-(If you host on Netlify you can use Netlify Forms instead. Ask Claude to switch it.)
+Every "Book a free desk" button uses `BOOKING_URL` in `_source/parts.py`. For now it opens an email to `hello@cdce.org.uk` with the subject filled in. Once the Google Form exists, replace it with the form's link and rebuild (or search and replace the `mailto:` link in the `.html` files). The first session date and the weekly capacity (20) are also set there.
 
 ## Automated publishing with GitHub (recommended)
 
